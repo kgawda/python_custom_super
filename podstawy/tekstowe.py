@@ -46,5 +46,8 @@ def main():
     # if tekst:
     #    instrukcje_dla_niepustego_stringa()
 
+    assert "kota" in tekst
+    assert "piżmowca" not in tekst
+
 if __name__ == "__main__":
     main()
