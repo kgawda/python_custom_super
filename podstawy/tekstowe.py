@@ -32,6 +32,8 @@ def main():
 
     # zwraca listę:
     assert tekst.split() == ['Ala', 'ma', 'kota', 'i', 'psa!']
+    tekst_sredniki = "Ala; kot;  pies;  123;; 4 ;"
+    assert tekst_sredniki.split(";") == ['Ala', ' kot', '  pies', '  123', '', ' 4 ', '']
 
     assert len(tekst) == 18  # długość
     pusty_str = ""
@@ -49,5 +51,23 @@ def main():
     assert "kota" in tekst
     assert "piżmowca" not in tekst
 
+def indeksowanie():
+    tekst = "Ala ma kota i psa!"
+    assert tekst[0] == "A"
+    assert tekst[1] == "l"
+    assert tekst[-1] == "!"
+
+    # Slices
+    assert tekst[4:10] == "ma kot"  # [ chcę_od_tego_indeksu : tego_indeksu_już_nie_chcę ]
+    assert tekst[:10] == "Ala ma kot"
+    assert tekst[4:] == "ma kota i psa!"
+
+    assert tekst[4:16:2] == "m oaip"  # co druga litera
+    assert tekst[15:3:-1] == "sp i atok am"
+    assert tekst[-1::-1] == "!asp i atok am alA"
+    assert tekst[::-1] == "!asp i atok am alA"
+
+
 if __name__ == "__main__":
     main()
+    indeksowanie()
