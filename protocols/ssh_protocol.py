@@ -4,7 +4,7 @@ def main():
     connection = fabric.Connection(
         "warsztat.mywire.org",
         user="student",
-        connect_kwargs={"password": "____"}
+        connect_kwargs={"password": "Tod&osAjtopAc2"}
     )
 
     # Wywołanie i analiza komendy
