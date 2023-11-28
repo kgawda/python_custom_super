@@ -17,6 +17,19 @@ def main():
     # print(response.status_code)
     # print(response.text)
 
+    response = requests.get("https://wttr.in/Warsaw?format=j1")
+    print(response.headers)
+    # data = json.loads(response.text)
+    data = response.json()
+    print("Aktualna temperatura:", data['current_condition'][0]['temp_C'])
+
+    response = requests.post("https://d609f5964be8416b85bbc84cca755b79.api.mockbin.io/", json={"pets": ["borsuk"]})
+    print(response.headers)
+    data = response.json()
+    print(data)
+
+
+
 def challenge():
     # response = requests.get("http://warsztat.mywire.org/Konrad/1/data")
     # print(response.text)
