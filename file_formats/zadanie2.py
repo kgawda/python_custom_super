@@ -17,12 +17,19 @@ Podpowiedź:
 """
 
 import json
+import datetime
+
+def get_id(bts):
+    return bts["id"]
 
 def main():
     with open("json_example.json", encoding="utf-8") as f:
         dane = json.load(f)
-    for bts in dane.values():
-        print(bts["id"], bts["short_name"], bts["insert_date"])
+    # for bts in dane.values():
+    for bts in sorted(dane.values(), key=get_id):
+        insert_date = datetime.datetime.strptime(bts["insert_date"], "%Y-%m-%d %H:%M:%S")
+        insert_ago = datetime.datetime.now() - insert_date
+        print(bts["id"], bts["short_name"], "inserted", insert_ago.days, "days ago")
 
 
 if __name__ == "__main__":
