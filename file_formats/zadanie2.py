@@ -15,3 +15,15 @@ Podpowiedź:
     na początku pliku dodaj: import datetime
     Następnie użyj datetime.datetime.strptime(...)
 """
+
+import json
+
+def main():
+    with open("json_example.json", encoding="utf-8") as f:
+        dane = json.load(f)
+    for bts in dane.values():
+        print(bts["id"], bts["short_name"], bts["insert_date"])
+
+
+if __name__ == "__main__":
+    main()
