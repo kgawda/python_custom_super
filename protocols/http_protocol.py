@@ -40,6 +40,16 @@ def challenge():
     response = requests.post("http://warsztat.mywire.org/Konrad/2/solution", data=data)
     print(response.text)
 
+    response = requests.post("http://warsztat.mywire.org/Konrad/5/solution", json={})
+    print(response.text)
+
+    response = requests.get("http://warsztat.mywire.org/Konrad/6/data")
+    data = response.json()
+    new_data = {"bytes": data["kilobytes"] * 1024}
+    print(new_data)
+    response = requests.post("http://warsztat.mywire.org/Konrad/6/solution", json=new_data)
+    print(response.text)
+
 if __name__ == "__main__":
     main()
     # challenge()  # uncomment to run challenge!
