@@ -19,6 +19,7 @@ def main():
     # \s -> [ \t\n\r\f\v]
 
     print(re.findall(r" (\w{3,5})[\.!]", s))  # ( ) - grupa
+    print(re.findall(r" (\w{3,5})([\.!])", s))  # dwie grupy: findall zwraca tuple
 
 if __name__ == "__main__":
     main()
