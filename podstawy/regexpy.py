@@ -18,5 +18,7 @@ def main():
     # \d -> [0-9]
     # \s -> [ \t\n\r\f\v]
 
+    print(re.findall(r" (\w{3,5})[\.!]", s))  # ( ) - grupa
+
 if __name__ == "__main__":
     main()
