@@ -27,9 +27,12 @@ def main():
     c = root.find("b").find("c")
     print(c.text)  # "Hej!"
     c.text = "Inny tekst"
-    c.set("atrybut", "wartosc")
+    c.set("atrybut", "wartość")
 
-    print(etree.tostring(root, pretty_print=True, encoding='utf-8'))
+    # do pliku/przesłania:
+    print(etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True))
+    # do wydruku:
+    print(etree.tostring(root, pretty_print=True, encoding=str))
 
 
 def dygresja_strefy_czasowe():
