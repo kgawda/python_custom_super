@@ -6,11 +6,17 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return render_template("index.html")
+    size_options = [4, 6, 8, 12, 24]
+    return render_template("index.html", size_options=size_options)
 
 @app.route("/diece")
 def roll_a_diece():
     result = random.randrange(1, 7)
+    return render_template("result.html", result=result)
+
+@app.route("/diece/k<int:size>")
+def roll_advanced_diece(size):
+    result = random.randrange(1, size + 1)
     return render_template("result.html", result=result)
 
 if __name__ == "__main__":

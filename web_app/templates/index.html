@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hello, world!</h1>
+    <h1>Rzuć kostką:</h1>
+    {% for size in size_options %}
+        <p>
+            <a href="{{ url_for("roll_advanced_diece", size=size) }}">Kostka {{size}}</a>
+        </p>
+    {% endfor %}
 {% endblock %}
