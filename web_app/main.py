@@ -27,7 +27,19 @@ def roll_advanced_diece(size):
 def my_form():
     return f"<h1>Witaj {request.form.get('imie', 'nieznajomy')}!</h1>"
 
+@app.route("/api/size_options")
+def list_size_options():
+    return {"available_sizes": SIZE_OPTIONS}
 
+@app.route("/api/roll_diece", methods=["POST"])
+def execute_diece_roll():
+    j = request.json  # inaczej niż w requests! bez nawiasów
+    size = j.get('k', 6)
+    if size not in SIZE_OPTIONS:
+        return {"status": "error"}, 404
+    iterations = j.get('iterations', 1)
+    results = [random.randrange(1, size+1) for _ in range(iterations)]
+    return {"status": "ok", "results": results}
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)  # use_reloader=False
