@@ -1,0 +1,13 @@
+[Unit]
+Description=My web app
+After=network.target
+
+[Service]
+Type=simple
+User=admin
+WorkingDirectory=/home/admin/web_app
+ExecStart=/home/admin/deploy_venv/bin/python main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
