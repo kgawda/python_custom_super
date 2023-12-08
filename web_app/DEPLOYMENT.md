@@ -19,7 +19,23 @@ Odpalenie przez systemd:
 ```bash
 scp -r web_app admin@_______:
 ssh admin@_____ sudo cp web_app/webapp.service /etc/systemd/system/
+ssh admin@_____ sudo systemctl enable webapp  # Start with system
 ssh admin@_____ sudo systemctl start webapp
 # strona internetowa poinna się pojawić na adresie http://____:5000
+```
+
+Przydatne dodatki:
+```bash
 ssh admin@_____ sudo systemctl status webapp
+ssh admin@_____ sudo systemctl restart webapp
+ssh admin@_____ sudo systemctl stop webapp
+```
+
+Update (ze zmianą pliku .service):
+```bash
+scp -r web_app admin@_______:
+ssh admin@_____ deploy_venv/bin/pip install -r web_app/requirements.txt
+ssh admin@_____ sudo cp web_app/webapp.service /etc/systemd/system/
+ssh admin@_____ sudo systemctl daemon-reload
+ssh admin@_____ sudo systemctl restart webapp
 ```

@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=admin
 WorkingDirectory=/home/admin/web_app
-ExecStart=/home/admin/deploy_venv/bin/python main.py
+ExecStart=/home/admin/deploy_venv/bin/gunicorn --bind=0.0.0.0:5000 main:app --log-level debug --log-file -
 Restart=always
 
 [Install]
