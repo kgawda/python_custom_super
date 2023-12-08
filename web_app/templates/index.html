@@ -10,4 +10,9 @@
             <a href="{{ url_for("roll_advanced_diece", size=size) }}">Kostka {{size}}</a>
         </p>
     {% endfor %}
+
+    <form method="post" action="/formularz">
+        Twoje imie: <input type="text" name="imie">
+        <button type="submit">Wyślij</button>
+    </form>
 {% endblock %}

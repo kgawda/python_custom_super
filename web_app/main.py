@@ -1,6 +1,6 @@
 import random
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -19,6 +19,10 @@ def roll_a_diece():
 def roll_advanced_diece(size):
     result = random.randrange(1, size + 1)
     return render_template("result.html", result=result)
+
+@app.route("/formularz", methods=["GET", "POST"])
+def my_form():
+    return f"<h1>Witaj {request.form.get('imie', 'nieznajomy')}!</h1>"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)  # use_reloader=False
