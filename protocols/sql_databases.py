@@ -5,6 +5,11 @@ import pymssql
 
 USER_NUMBER = int(os.environ.get("USER_NUMBER"))
 PASSWORD = os.environ.get("PASSWORD")
+"""
+On Windows Command Prompt:
+    set "USER_NUMBER=11" 
+    set "PASSWORD=..."
+"""
 
 def test_mysql(query):
     with pymysql.connect(
