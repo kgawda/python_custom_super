@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Rzuć kostką:</h1>
+    <h1>
+        <img src="{{ url_for("static", filename="logo.png") }}" width="32" height="32">
+        Rzuć kostką:
+    </h1>
     {% for size in size_options %}
         <p>
             <a href="{{ url_for("roll_advanced_diece", size=size) }}">Kostka {{size}}</a>
